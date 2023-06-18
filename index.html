@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Warhammer 40K Dice Roller</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="container" onload="init()">
+    <h1>Warhammer 40K Dice Roller</h1>
+
+    <div>
+        <form id="diceForm">
+            <div class="type-wrapper">
+                <div class="form-group">
+                    <label for="rollType">Type of Roll:</label>
+                </div>
+                <div class="type-input-wrapper">
+                    <select id="rollType" name="rollType" onchange="checkRollType()">
+                        <option value="Hit Roll">Hit Roll</option>
+                        <option value="Wound Roll">Wound Roll</option>
+                        <option value="Saving Throw">Saving Throw</option>
+                        <option value="Battle-Shock">Battle-Shock</option>
+                        <option value="Desperate Escape">Desperate Escape</option>
+                        <option value="Custom">Custom</option>
+                    </select>
+                </div>
+                <div class="form-group" id="customRollContainer">
+                    <label for="customType">Custom Type:</label>
+                </div>
+                <div class="type-input-wrapper">
+                    <input type="text" id="customType" name="customType" disabled>
+                </div>
+            </div>
+
+            <hr/>
+
+            <div class="grid-3-cols">
+                <div class="form-group">
+                    <label for="numDice">Amount of d6</label>
+                </div>
+                <div class="form-group">
+                    <label for="targetValue">Target Value</label>
+                </div>
+                <div class="form-group">
+                    <label for="modifier">Modifier per Die</label>
+                </div>
+                <div class="form-group">
+                    <input class="numbox" type="number" id="numDice" name="numDice" min="1" max="40" value="5">
+                </div>
+                <div class="form-group">
+                    <input class="numbox" type="number" id="targetValue" name="targetValue" min="1" max="10" value="3">
+                </div>
+                <div class="form-group">
+                    <input class="numbox" type="number" id="modifier" name="modifier" min="-6" max="6" value="0">
+                </div>
+            </div>
+
+            <hr/>
+
+            <div class="grid-3-cols">
+                <div class="form-group">
+                    <label for="explodingDice">Exploding Die</label>
+                </div>
+                <div class="form-group" id="explodingNumberDiv">
+                    <label for="explodingNumber">Explosion Number</label>
+                </div>
+                <div class="form-group" id="chainExplodingDiv">
+                    <label for="chainExploding">Chain Exploding</label>
+                </div>
+            </div>
+            <div class="grid-3-cols explosion-wrapper-inputs">
+                <div class="form-group">
+                    <input type="checkbox" id="explodingDice" name="explodingDice" onchange="checkExplosion()">
+                </div>
+                <div class="form-group">
+                    <input class="numbox" type="number" id="explodingNumber" name="explodingNumber" min="2" max="6"
+                           value="6">
+                </div>
+                <div class="form-group">
+                    <input type="checkbox" id="chainExploding" name="chainExploding">
+                </div>
+            </div>
+
+            <div class="d3">
+                <div class="form-group">
+                    <label for="treatAsD3">Treat d6 as d3</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="treatAsD3" name="treatAsD3">
+                </div>
+            </div>
+
+            <hr/>
+
+            <div class="btn-wrapper">
+                <div class="btn-container">
+                    <button id="performRollBtn" type="button" onclick="performRoll()">Roll</button>
+                </div>
+                <div class="btn-container">
+                    <button id="resetFormBtn" type="button" onclick="resetForm()">Reset</button>
+                </div>
+            </div>
+
+
+        </form>
+        <div id="validationOutput"></div>
+    </div>
+
+    <div class="results-wrapper">
+        <div id="totalResultsDiv">
+            <h2>Total Results</h2>
+            <table id="totalResultsTable"></table>
+        </div>
+    </div>
+
+    <div class="count-wrapper">
+        <div id="naturalResultsDiv">
+            <h2>Die Counts</h2>
+            <table id="naturalRollBreakdownTable"></table>
+        </div>
+        <div id="modifiedRollBreakdownDiv">
+            <h2>Modified Counts</h2>
+            <table id="modifiedRollBreakdownTable"></table>
+        </div>
+    </div>
+
+</div>
+<script src="warhammerDice.js"></script>
+</body>
+</html>

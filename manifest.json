@@ -1,0 +1,38 @@
+{
+  "manifestVersion": 1,
+  "name": "Warhammer 40k Dice Roller",
+  "summary": "A dice roller to help aid with Warhammer 40k.",
+  "descriptionFilePath": "/README.md",
+  "version": "0.0.1",
+  "license": "MIT",
+  "about": {
+    "website": "https://github.com/PanoramicPanda/warhammer40k_roller",
+    "authors": ["Uriah H. Brown"]
+  },
+  "kind": "webView",
+  "entryPoint": "/index.html",
+  "api": {
+    "version": "0.1",
+    "initTimeout": 10,
+    "initializeEarly": true,
+    "subscriptions": {
+      "dice": {
+        "onRollResults": "handleRollResult"
+      }
+    },
+    "interop": {
+      "id": "882a2aa3-2b42-47f2-a660-4262d678b1fb"
+    }
+  },
+  "icons": {
+    "64x64": "/icon.png"
+  },
+  "environment": {
+    "extras": [
+      "icons",
+      "fonts",
+      "colorStyles"
+    ],
+    "webViewBackgroundColor": "#000"
+  }
+}
