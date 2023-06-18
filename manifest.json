@@ -3,7 +3,7 @@
   "name": "Warhammer 40k Dice Roller",
   "summary": "A dice roller to help aid with Warhammer 40k.",
   "descriptionFilePath": "/README.md",
-  "version": "0.0.1",
+  "version": "1.0",
   "license": "MIT",
   "about": {
     "website": "https://github.com/PanoramicPanda/warhammer40k_roller",
